@@ -5,7 +5,7 @@ const should = require('chai')
     .use(require('chai-bignumber')(web3.BigNumber))
     .should();
 
-import expectThrow from './helpers/expectThrow.js';
+import expectThrow from './helpers/expectThrow';
 
 var VoteFactory = artifacts.require("./VoteFactory");
 
