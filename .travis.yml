@@ -8,9 +8,7 @@ install:
   - npm install -g ganache-cli
   - npm install
 script:
-  - npm test
+  - truffle test
 before_script:
   - sh scripts/rpc.sh &
   - sleep 5
-after_script:
-  - npm run coverage && cat coverage/lcov.info | coveralls
