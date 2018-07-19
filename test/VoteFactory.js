@@ -7,7 +7,7 @@ const should = require('chai')
 
 import expectThrow from './helpers/expectThrow';
 
-var VoteFactory = artifacts.require("./VoteFactory");
+var VoteFactory = artifacts.require('./VoteFactory');
 
 contract('VoteFactory', function(accounts) {
     let voteFactory;
@@ -21,6 +21,8 @@ contract('VoteFactory', function(accounts) {
     const question0 = 'Question 0';
     const answer0 = 'Answer 0';
     const answer1 = 'Answer 1';
+
+    const gasPrice = web3.toWei('15', 'gwei');
 
     beforeEach('setup contract for each test', async function () {
         voteFactory = await VoteFactory.new({from: owner});
