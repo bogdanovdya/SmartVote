@@ -48,6 +48,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    vendor: ['web3'],
     /*
      ** Run ESLint on save
      */
@@ -64,5 +65,7 @@ module.exports = {
         });
       }
     }
-  }
+  },
+  srcDir: 'src/',
+  rootDir: './'
 };
