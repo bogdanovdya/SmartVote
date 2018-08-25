@@ -42,11 +42,16 @@ contract VoteFactory is Ownable {
         selfdestruct(owner);
     }
 
-    function createVote(string _question) external {
-        uint256 voteId = votes.push(Vote(State.Initial, _question, new bytes32[](0), new address[](0))) - 1;
+    function createVote(string _question) public returns(uint256 voteId) {
+        voteId = votes.push(Vote(State.Initial, _question, new bytes32[](0), new address[](0))) - 1;
         voteToOwner[voteId] = msg.sender;
         ownerToVotes[msg.sender].push(voteId);
         emit CreateVote(voteId, _question);
+    }
+
+    function createVote(string _question, bytes32[] _answers) public returns(uint256 voteId) {
+        voteId = createVote(_question);
+        addAnswers(voteId, _answers);
     }
 
     function addAnswer(uint256 _voteId, bytes32 _answer) public ownerOfVote(_voteId) {
