@@ -51,7 +51,6 @@ contract VoteFactory is Ownable {
 
     function addAnswer(uint256 _voteId, bytes32 _answer) public ownerOfVote(_voteId) {
         votes[_voteId].answers.push(_answer);
-
         emit AddAnswer(_voteId, _answer);
     }
 
