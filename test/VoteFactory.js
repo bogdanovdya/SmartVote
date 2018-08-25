@@ -6,6 +6,7 @@ const should = require('chai')
     .should();
 
 import expectThrow from './helpers/expectThrow';
+import {fromHex, toHex} from './helpers/strHex';
 
 var VoteFactory = artifacts.require('./VoteFactory');
 
@@ -19,8 +20,10 @@ contract('VoteFactory', function(accounts) {
     const voter2 = accounts[4];
 
     const question0 = 'Question 0';
-    const answer0 = 'Answer 0';
-    const answer1 = 'Answer 1';
+    const answer0_str = 'Answer 0';
+    const answer1_str = 'Answer 1';
+    const answer0 = '0x' + (new String(toHex(answer0_str))).valueOf();
+    const answer1 = '0x' + (new String(toHex(answer1_str))).valueOf();
 
     const gasPrice = web3.toWei('15', 'gwei');
 
@@ -65,7 +68,7 @@ contract('VoteFactory', function(accounts) {
         await voteFactory.cast(voteId, answer1_id, {from: voter2});
 
         await voteFactory.stopVote(voteId, {from: voteOwner});
-
+        
         await expect(await voteFactory.results(voteId)).to.equal(answer0);
     });
 
