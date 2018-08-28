@@ -1,47 +1,67 @@
 {
-    "name": "smartvote",
-    "version": "1.0.0",
-    "description": "Solidity contracts for make smart votes",
-    "main": "y",
-    "directories": {
-        "test": "test"
-    },
-    "dependencies": {
-        "babel-preset-env": "^1.6.1",
-        "babel-polyfill": "^6.23.0",
-        "babel-register": "^6.26.0",
-        "chai": "^4.1.2",
-        "chai-as-promised": "^7.1.1",
-        "chai-bignumber": "^2.0.2",
-        "truffle": "^4.1.13",
-        "web3": "1.0.0-beta.34"
-    },
-    "devDependencies": {
-        "babel-preset-env": "^1.6.1",
-        "babel-polyfill": "^6.23.0",
-        "babel-register": "^6.26.0",
-        "chai": "^4.1.2",
-        "chai-as-promised": "^7.1.1",
-        "chai-bignumber": "^2.0.2",
-        "truffle": "^4.1.13",
-        "web3": "1.0.0-beta.34"
-    },
-    "scripts": {
-        "test": "truffle test",
-        "rpc": "scripts/rpc.sh"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ShagaleevAlexey/SmartVote.git"
-    },
-    "keywords": [
-        "solidity",
-        "truffle"
-    ],
-    "author": "ShagaleevAlexey",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ShagaleevAlexey/SmartVote/issues"
-    },
-    "homepage": "https://github.com/ShagaleevAlexey/SmartVote#readme"
+  "name": "smartvote",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Solidity contracts for make smart votes",
+  "main": "y",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "rpc": "scripts/rpc.sh",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore --ignore-pattern migrations/ --ignore-pattern test/ .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "nuxt": "^1.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2",
+    "truffle": "^4.1.13",
+    "web3": "1.0.0-beta.35",
+    "web3-eth-abi": "^1.0.0-beta.35",
+    "vue": "^2.5.17",
+    "vuex": "^3.0.1",
+    "websocket": "^1.0.26"
+  },
+  "devDependencies": {
+    "@salesforce-ux/design-system": "^2.6.2",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.2",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShagaleevAlexey/SmartVote.git"
+  },
+  "keywords": [
+    "solidity",
+    "truffle"
+  ],
+  "author": "ShagaleevAlexey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShagaleevAlexey/SmartVote/issues"
+  },
+  "homepage": "https://github.com/ShagaleevAlexey/SmartVote#readme"
 }

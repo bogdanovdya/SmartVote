@@ -2,3 +2,16 @@ node_modules/*
 build/*
 !build/contracts
 .vscode/*
+.idea/*
+
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
