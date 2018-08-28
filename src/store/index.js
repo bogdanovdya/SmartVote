@@ -24,7 +24,7 @@ const store = () => new Vuex.Store({
       error: undefined
     },
     voteFactory: {
-      address: '0x86ba28d49473f11ce297a5cfee29a0370d1fccb1',
+      address: '0xdcff24601c2588e4848f7175a8c5b8665eb28e3a',
       contractInstance: undefined
     },
     account: {
