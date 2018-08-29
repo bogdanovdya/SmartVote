@@ -5,6 +5,8 @@ Smart contracts for create public vote.
 
 P.S. Don't worry, the interests of the voters will not be compromised
 
+RinkeBy: 0xdcff24601c2588e4848f7175a8c5b8665eb28e3a
+
 # Installation
 1. Install [truffle](http://truffleframework.com) globally with `npm install -g truffle`
 2. Install [ganache-cli](https://github.com/trufflesuite/ganache-cli) globally with `npm install -g ganache-cli`
