@@ -132,4 +132,19 @@ contract VoteFactory is Ownable {
         return votes[_voteId].state == State.Stopped;
     }
 
+    /*
+    * GETTERS
+    */
+
+    function getVote(uint256 _voteId) public view returns(State, string, bytes32[], int256[]) {
+        Vote storage vote = votes[_voteId];
+        int256[] memory res = new int256[](vote.answers.length);
+
+        for (uint256 i = 0; i < vote.voters.length; i++) {
+            res[vote.voterToAnswer[i]] += 1;
+        }
+
+        return (vote.state, vote.question, vote.answers, res);
+    }
+
 }

@@ -53,7 +53,7 @@
                     console.log('need login and select answer')
                 }
                 else {
-                    contractInstance.methods.cast(0, selectId - 1).send({
+                    contractInstance.methods.cast(voteId - 1, selectId - 1).send({
                         from: account,
                         gas: 1500000
                     }, function(error, result){
