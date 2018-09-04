@@ -2,7 +2,7 @@
     <section class="container vote-id">
         <div class="slds-grid slds-grid_vertical">
 
-            <a @click="go()">owner: {{ owner }}</a>
+            <a v-bind:href="'https://rinkeby.etherscan.io/address/' + this.owner" target="_blank">owner: {{ owner }}</a>
 
             <div class="slds-split-view__list-header slds-grid vote-id__question">
                 <b><span>{{vote[1]}}</span></b>
@@ -105,9 +105,6 @@
                         }
                     });
                 }
-            },
-            go() {
-                window.location.href="https://rinkeby.etherscan.io/address/" + this.owner;
             },
             convertFromHex: function(str) {
                 var res = fromHex(str.substr(2), '')
