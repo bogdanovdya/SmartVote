@@ -4,17 +4,17 @@
       <div class="slds-panel__body">
         <div class="slds-grid slds-grid_align-center">
           <span class="slds-avatar slds-avatar_circle profile__avatar">
-            <img src="http://via.placeholder.com/350x350" alt="avatar">
+            <img v-bind:src="avatar" alt="avatar">
           </span>
         </div>
         <div class="slds-m-top_large">
           <dl class="slds-m-bottom_medium">
             <dt>Address:</dt>
-            <dd class="slds-truncate">{{this.$store.state.account.address}}</dd>
+            <dd class="slds-truncate">{{ this.$store.state.account.address }}</dd>
           </dl>
           <dl class="slds-m-bottom_medium profile__stat">
             <dt>Votes created:</dt>
-            <dd>1</dd>
+            <dd>{{ this.votes.length }}</dd>
           </dl>
           <dl class="slds-m-bottom_medium profile__stat">
             <dt>Votes answered:</dt>
@@ -51,24 +51,38 @@ export default {
   },
   data() {
     return {
-      isMe: true,
+      isMe: undefined,
       votesData: {},
       currentTab: 0,
       activity: {},
-      votes: {}
+      votes: {},
+      address: undefined,
+      avatar: undefined
     }
   },
   mounted() {
-    const url = this.isMe? 'my-vote.json' : 'vote.json';
-    this.getVotes(url);
+    this.getProfile();
+    this.getVotes();
+    this.getActivity();
   },
   methods: {
     setCurrentTab(id) {
       this.currentTab = id
     },
-    async getVotes(url) {
-      this.activity = await this.$axios.$get("vote.json");
-      this.votes = await this.$axios.$get(url);
+    getProfile(){
+        this.isMe = this.$route.params.address == null || this.$route.params.address == this.$store.state.account.address ? true : false
+        console.log(this.isMe)
+        this.address = this.isMe? this.$store.state.account.address : this.$route.params.address
+        console.log(address)
+        this.avatar = "https://www.tinygraphs.com/labs/isogrids/hexa/" + this.address
+    },
+    getVotes() {
+      var contractInstance = this.$store.state.voteFactory.contractInstance
+      contractInstance.methods.ownerToVotes(this.address).call()
+      .then(function(res){
+          this.votes = res
+          .then(this.votes = await this.$axios.$get("vote.json")) // чисто чтоб работало и не вывело непонятно что
+      })
     },
     onChangeAnswer(ids) {
       // TODO
